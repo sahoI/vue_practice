@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>jQueryの利用</title>
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+</head>
+<body>
+    <h1>jQueryの利用</h1>
+    <p id="message">
+        今日は<strong>いい天気</strong>ですね。
+    </p>
+<div id="container"></div>
+<script>
+    jQuery(function($){
+        $('p#message').click(function() {
+            $(this).css('color','red');
+        });
+    });
+</script>
+</body>
+</html>
