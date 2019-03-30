@@ -1,5 +1,6 @@
 <template>
     <div>
+        <myheader></myheader>
         <p v-if="msg.length > 0">
             {{msg}}
         </p>
@@ -11,7 +12,13 @@
     </div>
 </template>
 
-<script> export default {
+<script>
+import myheader from './components/myheader'
+
+export default {
+  components: {
+    myheader
+  },
   data () {
     return {
       msg: 'Hello World!'
@@ -21,6 +28,17 @@
     clear () {
       this.msg = ''
     }
+  },
+  created () {
+    fetch('http://www.geonames.org/postalCodeLookupJSON?postalcode=10504&country=US')
+      .then(response => {
+        return response.json()
+      })
+      .then(json => {
+        this.msg = json.postalcodes[0].adminName1
+      })
+      .catch(() => {
+      })
   }
 }
 </script>
