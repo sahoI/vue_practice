@@ -7,6 +7,7 @@
             no text
         </p>
         <input type="text" v-model="msg">
+        <button @click="clear()">clear</button>
     </div>
 </template>
 
@@ -14,6 +15,11 @@
   data () {
     return {
       msg: 'Hello World!'
+    }
+  },
+  methods: {
+    clear () {
+      this.msg = ''
     }
   }
 }
